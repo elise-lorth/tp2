@@ -2,11 +2,11 @@ name: CI devops 2021 EPF
 on:
 #to begin you want to launch this job in main and develop
   push:
-    branches: #TODO
+    branches: master
   pull_request:
 
 jobs:
-    build-and-test-app :
+  build-and-test-app:
     runs-on: ubuntu-18.04
     steps:
      #checkout your github code using actions/checkout@v2.3.3
@@ -16,4 +16,4 @@ jobs:
       #TODO
 #finally build your app with the latest command
       - name: Build and test with Maven
-        run: #TODO
+        run: mvn clean verify
