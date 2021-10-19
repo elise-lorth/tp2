@@ -6,7 +6,7 @@ on:
   pull_request:
 
 jobs:
-  job-name: build-and-test-app
+    build-and-test-app :
     runs-on: ubuntu-18.04
     steps:
      #checkout your github code using actions/checkout@v2.3.3
