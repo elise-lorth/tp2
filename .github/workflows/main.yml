@@ -1,6 +1,5 @@
 name: CI devops 2021 EPF
 on:
-#to begin you want to launch this job in main and develop
   push:
     branches: master
   pull_request:
@@ -15,7 +14,11 @@ jobs:
         with:
           java-version: '11'
       - name: Build and test with Maven
-        run: mvn -B package --file simple-api/pom.xml
+        #run: mvn -B package --file simple-api/pom.xml
+        
+        run : mvn -B verify sonar:sonar -Dsonar.projectKey=devops-2020
+         -Dsonar.organization=devops-epf
+         -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{secrets.SONAR_TOKEN }} --file ./simple-api/pom.xml
 
   build-and-push-docker-image:
     needs: build-and-test-app
