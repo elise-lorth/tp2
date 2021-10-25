@@ -5,6 +5,11 @@ on:
   pull_request:
 
 jobs:
+  build-and-test-backend:
+    runs-on: ubuntu-latest
+    env:
+      working-directory: simple-api
+
   build-and-test-app:
     runs-on: ubuntu-18.04
     steps:
@@ -47,7 +52,3 @@ jobs:
           tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-epf:httpd
           push: true
       
-  build-and-test-backend:
-    runs-on: ubuntu-latest
-    env:
-      working-directory: ./simple-api
